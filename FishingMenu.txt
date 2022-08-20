@@ -473,7 +473,6 @@ local Button9 = Section3:CreateButton("Change", function()
         elseif colorSelected == "Purple" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuPr.txt"))()
         elseif colorSelected == "Red" then
-            Config.Keybind = Enum.keyCode[Color]
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuRd.txt"))()
         elseif colorSelected == "Yellow" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuYl.txt"))()
