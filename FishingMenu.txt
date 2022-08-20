@@ -1,7 +1,7 @@
 local Config = {
     WindowName = "version 0.5",
     Color = Color3.fromRGB(53, 244, 188),
-    Keybind = Enum.KeyCode.ShiftRight
+    Keybind = Enum.KeyCode.RightBracket
 }
 
 
@@ -9,7 +9,7 @@ local Config = {
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/AlexR32/Roblox/main/BracketV3.lua"))()
 local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
 
-local Tab1 = Window:CreateTab("Fishing Sim Fucker")
+local Tab1 = Window:CreateTab("Fishing Simulator")
 
 
 local Section1 = Tab1:CreateSection("")
@@ -18,13 +18,15 @@ local Section2 = Tab1:CreateSection("")
 local RunService = game:GetService("RunService")
 local player = game.Players.LocalPlayer
 local hum = player.Character.HumanoidRootPart
-local mouse = player:GetMouse()
+local mouse = player:GetMouse() 
 local tpservice= game:GetService("TeleportService")
 local VirtualUser= game:service'VirtualUser'
 
 local ToolsCache = game:GetService("ReplicatedStorage").ToolsCache[player.UserId]
 local plrTools
 local bLocation
+local fuckMonster
+local fuckMobby
 
 local seacreatureSelectionned
 local locationSelected
@@ -139,6 +141,9 @@ end)
 
 
 -------------------------------------------------------
+
+
+
 Section1:CreateLabel("Farming")
 
 local Toggle6 = Section1:CreateToggle("Auto Kill", nil, function(State)
@@ -463,3 +468,5 @@ EquipTool()
 game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(character)
     EquipTool()
 end)
+
+--Hi
