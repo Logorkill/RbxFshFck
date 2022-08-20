@@ -1,7 +1,7 @@
 local Config = {
     WindowName = "version 0.5",
-    Color = Color3.fromRGB(53, 244, 188),
-    Keybind = Enum.KeyCode.RightBracket
+    Color = Color3.fromRGB(68, 85, 224),
+    Keybind = Enum.KeyCode.RightShift
 }
 
 
@@ -9,16 +9,17 @@ local Config = {
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/AlexR32/Roblox/main/BracketV3.lua"))()
 local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
 
-local Tab1 = Window:CreateTab("Fishing Simulator")
+local Tab1 = Window:CreateTab("FISHING SIMULATOR MENU BY LOGORKILL")
 
 
 local Section1 = Tab1:CreateSection("")
 local Section2 = Tab1:CreateSection("")
+local Section3 = Tab1:CreateSection("")
 
 local RunService = game:GetService("RunService")
 local player = game.Players.LocalPlayer
 local hum = player.Character.HumanoidRootPart
-local mouse = player:GetMouse() 
+local mouse = player:GetMouse()
 local tpservice= game:GetService("TeleportService")
 local VirtualUser= game:service'VirtualUser'
 
@@ -146,21 +147,19 @@ end)
 
 Section1:CreateLabel("Farming")
 
-local Toggle6 = Section1:CreateToggle("Auto Kill", nil, function(State)
+local Toggle6 = Section1:CreateToggle("Kill Bot", nil, function(State)
     shared.toggle = State
      if shared.toggle then
     fuckMonster = RunService.Stepped:Connect(function()
      for i, v in pairs(game.Workspace:GetChildren()) do
      if v:FindFirstChild("Health") and v:FindFirstChild("IsSeaMonster") then
         if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") then
-                 
-                
                     for i, getTools in pairs(player.Character:GetChildren()) do
                         if getTools:IsA("Tool") and  getTools:FindFirstChild("GripC1") then
                             plrTools = getTools.Name
                         end
                     end
-                 
+
                     teleport(v.HumanoidRootPart.CFrame + Vector3.new(0, 30, 0))
                     wait(1)
                     game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.MonsterHit:FireServer(workspace[v.Name], tostring(plrTools), true)
@@ -178,6 +177,8 @@ local Toggle6 = Section1:CreateToggle("Auto Kill", nil, function(State)
         end
 end)
 
+Toggle6:AddToolTip("Teleport to sea creatures\n Auto-Kill and Auto-loot\n Combine with Sell Bot\n To Idle")
+
 local Toggle11 = Section1:CreateToggle("Auto Kill Mobby Wood", nil, function(State)
     shared.toggle = State
      if shared.toggle then
@@ -185,14 +186,12 @@ local Toggle11 = Section1:CreateToggle("Auto Kill Mobby Wood", nil, function(Sta
      for i, v in pairs(game.Workspace:GetChildren()) do
      if v:FindFirstChild("Health") and v:FindFirstChild("IsSeaMonster") and v.Name == "MobbyWood" then
         if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") then
-                 
-                
                     for i, getTools in pairs(player.Character:GetChildren()) do
                         if getTools:IsA("Tool") and  getTools:FindFirstChild("GripC1") then
                             plrTools = getTools.Name
                         end
                     end
-                 
+
                     teleport(v.HumanoidRootPart.CFrame + Vector3.new(0, 50, 0))
                     wait(1)
                     game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.MonsterHit:FireServer(workspace[v.Name], tostring(plrTools), true)
@@ -266,7 +265,7 @@ toggle = State
     end
 end)
 
-local Toggle2 = Section1:CreateToggle("Auto Sell", nil, function(State)
+local Toggle2 = Section1:CreateToggle("Sell Bot", nil, function(State)
 toggle = State
     while toggle do
         wait(2.6)
@@ -337,6 +336,7 @@ local Toggle5 = Section1:CreateToggle("Suken Chest", nil, function(State)
                  end
               end
         end
+        teleport(CFrame.new(1.8703980445862, 53.57190322876, -188.37982177734))
 end)
 
 
@@ -434,35 +434,52 @@ local Button8 = Section2:CreateButton("Buy", function()
     end
 end)
 
-Section2:CreateLabel("Misc")
+Section3:CreateLabel("Misc")
 
 
-local Button8 = Section2:CreateButton("Instant ProximityPrompt", function()
+local Button8 = Section3:CreateButton("Instant ProximityPrompt", function()
 game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(function(prompt)
    prompt.HoldDuration = 0
 end)
 end) 
 
-local Button5 = Section2:CreateButton("Rejoins", function()
+local Button5 = Section3:CreateButton("Rejoins", function()
 tpservice:Teleport(game.PlaceId, plr)
 end) 
 
-local Button6 = Section2:CreateButton("Server Hop", function()
+local Button6 = Section3:CreateButton("Server Hop", function()
 switchServer()
-end)   
-
-local Button7 = Section2:CreateButton("Discord", function()
-setclipboard("HUnTFaE4H6") 
 end)
 
-local Toggle7 = Section2:CreateToggle("UI Toggle", nil, function(State)
+local Toggle7 = Section3:CreateToggle("Menu Bind", nil, function(State)
     Window:Toggle(State)
 end)
 
 Toggle7:CreateKeybind(tostring(Config.Keybind):gsub("Enum.KeyCode.", ""), function(Key)
     Config.Keybind = Enum.KeyCode[Key]
-end)    
-Toggle7:SetState(true)
+end)
+Toggle7:SetState(false)
+
+local Dropdown = Section3:CreateDropdown("Menu Color", {"Blue","Purple","Red", "Yellow", "Green"}, function(String)
+    colorSelected = String
+end)
+
+local Button9 = Section3:CreateButton("Change", function()
+    if colorSelected == "Blue" then
+        Config.Color = Color3.fromRGB(68, 85, 224)
+        elseif colorSelected == "Purple" then
+            Config.Color = Color3.fromRGB(15, 85, 224)
+        elseif colorSelected == "Red" then
+            Config.Color = Color3.fromRGB(255, 20, 22)
+        elseif colorSelected == "Yellow" then
+            Config.Color = Color3.fromRGB(125, 125, 24)
+        elseif colorSelected == "Green" then
+            Config.Color = Color3.fromRGB(41, 250, 24)
+    end
+    Tab1 = Destroy
+    Toggle7:SetState(false)
+    Window = Destroy
+end)
 
 EquipTool()
 game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(character)
