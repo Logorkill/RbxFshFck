@@ -4,8 +4,6 @@ local Config = {
     Keybind = Enum.KeyCode.RightShift
 }
 
-
-
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/AlexR32/Roblox/main/BracketV3.lua"))()
 local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
 
@@ -134,16 +132,6 @@ game:service'Players'.LocalPlayer.Idled:connect(function()
     VirtualUser:CaptureController()
     VirtualUser:ClickButton2(Vector2.new())
 end)
-
--------------
-
-
-
-
-
--------------------------------------------------------
-
-
 
 Section1:CreateLabel("Farming")
 
@@ -480,10 +468,3 @@ local Button9 = Section3:CreateButton("Change", function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuGr.txt"))()
     end
 end)
-
-EquipTool()
-game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(character)
-    EquipTool()
-end)
-
---Hi
