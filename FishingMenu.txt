@@ -13,6 +13,7 @@ local Tab1 = Window:CreateTab("FISHING SIMULATOR MENU BY LOGORKILL")
 local Section1 = Tab1:CreateSection("")
 local Section2 = Tab1:CreateSection("")
 local Section3 = Tab1:CreateSection("")
+local Section4 = Tab1:CreateSection("")
 
 local RunService = game:GetService("RunService")
 local player = game.Players.LocalPlayer
@@ -269,66 +270,15 @@ local Toggle3 = Section1:CreateToggle("Remove Fog", nil, function(State)
         end
             game.Lighting.FogEnd = 1000000
             game.Lighting.GlobalLighting:Destroy()
-            game.Lighting.Atmosphere:Destroy()     
-             game.Lighting.Lighting:Destroy()  
-              game.Lighting.ColorCorrection:Destroy()     
-               game.Lighting.Bloom:Destroy()     
-                game.Lighting.Blur:Destroy()     
-                 game.Lighting.Atmosphere:Destroy()                 
+            game.Lighting.Atmosphere:Destroy()
+             game.Lighting.Lighting:Destroy()
+              game.Lighting.ColorCorrection:Destroy()
+               game.Lighting.Bloom:Destroy()
+                game.Lighting.Blur:Destroy()
+                 game.Lighting.Atmosphere:Destroy()
         end
 end)
 
-Section1:CreateLabel("Chest")
-
-local Toggle4 = Section1:CreateToggle("Daily Chest", nil, function(State)
-    toggle = State
-        while toggle do
-                for i, v in pairs(game.Workspace.Islands:GetDescendants()) do
-                    if v:IsA("Model") and string.match(v.Name, "Chest") then
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
-                        wait(1)
-                        fireproximityprompt(v.HumanoidRootPart.ProximityPrompt)
-                    end
-                end            
-        end
-end)
-
-local Toggle9 = Section1:CreateToggle("Random Chest", nil, function(State)
-    toggle = State
-        while toggle do
-                for i, v in pairs(game.Workspace.RandomChests:GetDescendants()) do
-                    if v:IsA("Model") and string.match(v.Name, "Chest") then
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
-                        wait(1)
-                        fireproximityprompt(v.HumanoidRootPart.ProximityPrompt)
-                    end
-                end            
-        end
-end)
-
-local Toggle5 = Section1:CreateToggle("Suken Chest", nil, function(State)
-    toggle = State
-        while toggle do
-            wait(5)
-             for i, v in pairs(game.Workspace:GetChildren()) do
-                if string.find(v.Name, "ShipModel") then
-                        teleport(v.HitBox.CFrame)
-                        for i, x in pairs(v:GetChildren()) do
-                            if string.match(x.Name, "Chest_") then
-                                teleport(x.HumanoidRootPart.CFrame)
-                                wait(1)
-                                fireproximityprompt(x.HumanoidRootPart.ProximityPrompt)
-                            end
-                        end
-                    break
-                 end
-              end
-            teleport(CFrame.new(1.8703980445862, 53.57190322876, -188.37982177734))
-        end
-end)
-
-
----------------------------------------------------------------------
 Section1:CreateLabel("Teleport")
 
 local Dropdown2 = Section1:CreateDropdown("Store", {"Boat Store","Raygan's Tavern","Supplies Store", "Pets Store"}, function(String)
@@ -341,7 +291,7 @@ local Button1 = Section1:CreateButton("Teleport", function()
         elseif locationSelected == "Raygan's Tavern" then
             game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.EnterDoor:InvokeServer("TavernInterior", "Inside")
         elseif locationSelected == "Supplies Store" then
-            game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.EnterDoor:InvokeServer("SuppliesStoreInterior", "Inside")  
+            game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.EnterDoor:InvokeServer("SuppliesStoreInterior", "Inside")
         elseif locationSelected == "Pets Store" then
             game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.EnterDoor:InvokeServer("PetShop", "MainEntrance")
     end
@@ -467,4 +417,76 @@ local Button9 = Section3:CreateButton("Change", function()
         elseif colorSelected == "Green" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuGr.txt"))()
     end
+end)
+
+Section4:CreateLabel("Main")
+
+local Button = Section4:CreateButton("Fast Pos", function()
+    teleport(CFrame.new(1.8703980445862, 53.57190322876, -188.37982177734))
+end)
+Button:AddToolTip("Fast TP to the main\n Island")
+
+local Button7 = Section4:CreateButton("Get Lost Chest", function()
+    while 1 do
+            for i, v in pairs(game.Workspace.RandomChests:GetDescendants()) do
+                if v:IsA("Model") and string.match(v.Name, "Chest") then
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
+                    wait(1)
+                    fireproximityprompt(v.HumanoidRootPart.ProximityPrompt)
+                end
+            end
+            wait(2)
+            break
+    end
+end)
+
+local Button10 = Section4:CreateButton("Get Sunken Chest", function()
+    while 1 do
+        for i, v in pairs(game.Workspace:GetChildren()) do
+            if string.find(v.Name, "ShipModel") then
+                    teleport(v.HitBox.CFrame)
+                    for i, x in pairs(v:GetChildren()) do
+                        if string.match(x.Name, "Chest_") then
+                            teleport(x.HumanoidRootPart.CFrame)
+                            wait(1)
+                            fireproximityprompt(x.HumanoidRootPart.ProximityPrompt)
+                        end
+                    end
+                break
+             end
+          end
+        wait(2)
+        break
+    end
+end)
+
+local Dropdown1 = Section1:CreateDropdown("Daily Chests", {"Port Jackson Chest","Ancient Shores Chest","Shadow Isles Chest", "Pharaoh's Dunes Chest", "Eruption Island Chest", "Monster's Borough Chest", "Suken Ship Chest"}, function(String)
+    locationSelectedC = String
+end)
+
+local Button12 = Section1:CreateButton("Teleport", function()
+    if locationSelectedC == "Port Jackson" then
+        teleport(CFrame.new(1.8703980445862, 53.57190322876, -188.37982177734))
+        elseif locationSelectedC == "Ancient Shores" then
+        teleport(CFrame.new(-2436.431640625, 43.564971923828, -1683.4526367188))
+        elseif locationSelectedC == "Shadow Isles" then
+        teleport(CFrame.new(2196.9926757812, 43.491630554199, -2216.4543457031))
+        elseif locationSelectedC == "Pharaoh's Dunes" then
+        teleport(CFrame.new(-4142.74609375, 46.71378326416, 262.05679321289))
+        elseif locationSelectedC == "Eruption Island Chest" then
+        teleport(CFrame.new(2914, 190, 1870))
+        elseif locationSelectedC == "Monster's Borough" then
+        teleport(CFrame.new(-3211.9047851562, 41.850345611572, 2735.306640625))
+        elseif locationSelectedC == "Suken Ship" then
+             for i, v in pairs(game.Workspace:GetChildren()) do
+                if string.find(v.Name, "ShipModel") then
+                        teleport(v.HitBox.CFrame)
+                    break
+                 end
+              end
+    end
+end)
+
+local Button11 = Section4:CreateButton("Fast Pos", function()
+    teleport(CFrame.new(2914, 190, 1870))
 end)
