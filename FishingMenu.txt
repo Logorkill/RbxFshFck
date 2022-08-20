@@ -317,14 +317,14 @@ local Toggle5 = Section1:CreateToggle("Suken Chest", nil, function(State)
                             if string.match(x.Name, "Chest_") then
                                 teleport(x.HumanoidRootPart.CFrame)
                                 wait(1)
-                                fireproximityprompt(x.HumanoidRootPart.ProximityPrompt)    
-                            end                                
+                                fireproximityprompt(x.HumanoidRootPart.ProximityPrompt)
+                            end
                         end
                     break
                  end
               end
+            teleport(CFrame.new(1.8703980445862, 53.57190322876, -188.37982177734))
         end
-        teleport(CFrame.new(1.8703980445862, 53.57190322876, -188.37982177734))
 end)
 
 
@@ -353,24 +353,24 @@ end)
 
 local Button2 = Section1:CreateButton("Teleport", function()
     if locationSelected == "Port Jackson" then
-        teleport(CFrame.new(1.8703980445862, 53.57190322876, -188.37982177734))           
+        teleport(CFrame.new(1.8703980445862, 53.57190322876, -188.37982177734))
         elseif locationSelected == "Ancient Shores" then
-        teleport(CFrame.new(-2436.431640625, 43.564971923828, -1683.4526367188))    
+        teleport(CFrame.new(-2436.431640625, 43.564971923828, -1683.4526367188))
         elseif locationSelected == "Shadow Isles" then
-        teleport(CFrame.new(2196.9926757812, 43.491630554199, -2216.4543457031))    
+        teleport(CFrame.new(2196.9926757812, 43.491630554199, -2216.4543457031))
         elseif locationSelected == "Pharaoh's Dunes" then
         teleport(CFrame.new(-4142.74609375, 46.71378326416, 262.05679321289))
         elseif locationSelected == "Eruption Island" then
         teleport(CFrame.new(3022.9311523438, 52.347640991211, 1323.74609375))
         elseif locationSelected == "Monster's Borough" then
-        teleport(CFrame.new(-3211.9047851562, 41.850345611572, 2735.306640625))  
+        teleport(CFrame.new(-3211.9047851562, 41.850345611572, 2735.306640625))
         elseif locationSelected == "Suken Ship" then
              for i, v in pairs(game.Workspace:GetChildren()) do
                 if string.find(v.Name, "ShipModel") then
                         teleport(v.HitBox.CFrame)
                     break
                  end
-              end                               
+              end
     end
 end)
 
@@ -381,7 +381,7 @@ local Slider1 = Section2:CreateSlider("Boat Speed", 0,150,nil,true, function(Val
         if v.Name == (game.Players.LocalPlayer.Name .. "'s Boat") then
              v.Controller.VehicleSeat.MaxSpeed = tonumber(Value)
          end
-    end   
+    end
 end)
 
 local Button3 = Section2:CreateButton("Tp to Boat", function()
