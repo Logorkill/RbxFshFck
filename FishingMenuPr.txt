@@ -465,7 +465,6 @@ local Dropdown = Section3:CreateDropdown("Menu Color", {"Blue","Purple","Red", "
 end)
 
 local Button9 = Section3:CreateButton("Change", function()
-    Config.Keybind = Enum.keyCode[Color]
     Tab1 = Destroy
     Toggle7:SetState(false)
     Window = Destroy
