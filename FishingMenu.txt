@@ -465,20 +465,21 @@ local Dropdown = Section3:CreateDropdown("Menu Color", {"Blue","Purple","Red", "
 end)
 
 local Button9 = Section3:CreateButton("Change", function()
-    if colorSelected == "Blue" then
-        Config.Color = Color3.fromRGB(68, 85, 224)
-        elseif colorSelected == "Purple" then
-            Config.Color = Color3.fromRGB(15, 85, 224)
-        elseif colorSelected == "Red" then
-            Config.Color = Color3.fromRGB(255, 20, 22)
-        elseif colorSelected == "Yellow" then
-            Config.Color = Color3.fromRGB(125, 125, 24)
-        elseif colorSelected == "Green" then
-            Config.Color = Color3.fromRGB(41, 250, 24)
-    end
     Tab1 = Destroy
     Toggle7:SetState(false)
     Window = Destroy
+    Config.Keybind = Enum.keyCode[Color]
+    if colorSelected == "Blue" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuBl.txt"))()
+        elseif colorSelected == "Purple" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuPr.txt"))()
+        elseif colorSelected == "Red" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuRd.txt"))()
+        elseif colorSelected == "Yellow" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuYl.txt"))()
+        elseif colorSelected == "Green" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuGr.txt"))()
+    end
 end)
 
 EquipTool()
