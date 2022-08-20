@@ -1,6 +1,6 @@
 local Config = {
     WindowName = "version 0.5",
-    Color = Color3.fromRGB(68, 85, 224),
+    Color = Color3.fromRGB(255, 20, 22),
     Keybind = Enum.KeyCode.RightShift
 }
 
@@ -469,15 +469,15 @@ local Button9 = Section3:CreateButton("Change", function()
     Toggle7:SetState(true)
     Window = Destroy
     if colorSelected == "Blue" then
-        Config.Color = Color3.fromRGB(68, 85, 224)
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuBl.txt"))()
         elseif colorSelected == "Purple" then
-            Config.Color = Color3.fromRGB(15, 85, 224)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuPr.txt"))()
         elseif colorSelected == "Red" then
-            
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuRd.txt"))()
         elseif colorSelected == "Yellow" then
-            Config.Color = Color3.fromRGB(125, 125, 24)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuYl.txt"))()
         elseif colorSelected == "Green" then
-            Config.Color = Color3.fromRGB(41, 250, 24)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuGr.txt"))()
     end
 end)
 
