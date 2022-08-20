@@ -480,10 +480,3 @@ local Button9 = Section3:CreateButton("Change", function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuGr.txt"))()
     end
 end)
-
-EquipTool()
-game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(character)
-    EquipTool()
-end)
-
---Hi
