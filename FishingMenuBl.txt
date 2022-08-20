@@ -458,7 +458,7 @@ end)
 Toggle7:CreateKeybind(tostring(Config.Keybind):gsub("Enum.KeyCode.", ""), function(Key)
     Config.Keybind = Enum.KeyCode[Key]
 end)
-Toggle7:SetState(false)
+Toggle7:SetState(true)
 
 local Dropdown = Section3:CreateDropdown("Menu Color", {"Blue","Purple","Red", "Yellow", "Green"}, function(String)
     colorSelected = String
