@@ -1,6 +1,6 @@
 local Config = {
     WindowName = "version 0.5",
-    Color = Color3.fromRGB(15, 85, 224),
+    Color = Color3.fromRGB(34, 108, 229),
     Keybind = Enum.KeyCode.RightShift
 }
 
