@@ -468,12 +468,12 @@ local Button9 = Section3:CreateButton("Change", function()
     Tab1 = Destroy
     Toggle7:SetState(false)
     Window = Destroy
-    Config.Keybind = Enum.keyCode[Color]
     if colorSelected == "Blue" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuBl.txt"))()
         elseif colorSelected == "Purple" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuPr.txt"))()
         elseif colorSelected == "Red" then
+            Config.Keybind = Enum.keyCode[Color]
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuRd.txt"))()
         elseif colorSelected == "Yellow" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Logorkill/RbxFshFck/main/FishingMenuYl.txt"))()
